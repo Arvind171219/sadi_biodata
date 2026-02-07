@@ -4,581 +4,527 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arvind Kumar - Marriage Biodata</title>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root {
-    --bg: #f6f1eb;
-    --card: #ffffff;
-    --primary: #b8860b;
-    --primary-soft: #d4a843;
-    --primary-pale: #f5ecd5;
-    --primary-ghost: #faf5e8;
-    --accent: #8b2232;
-    --accent-soft: #a83a4a;
-    --text: #1c1917;
-    --text-2: #44403c;
-    --text-3: #78716c;
-    --text-4: #a8a29e;
-    --line: #e7e5e4;
-    --line-soft: #f0eeec;
+    --deep: #1b1b1b;
+    --gold: #c8a35a;
+    --gold-light: #e4cf94;
+    --gold-pale: #f7f0dd;
+    --gold-ghost: #fcf8ee;
+    --warm: #f8f4ed;
+    --white: #ffffff;
+    --text: #1a1a1a;
+    --text-2: #4a4a4a;
+    --text-3: #888;
+    --text-4: #bbb;
+    --line: #eae6e0;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    background: linear-gradient(180deg, #ede8e0 0%, #e4ddd3 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    padding: 20px 10px;
+    padding: 16px 8px;
     -webkit-font-smoothing: antialiased;
   }
 
-  .card {
+  .page {
     width: 100%;
-    max-width: 480px;
-    background: var(--card);
-    border-radius: 20px;
+    max-width: 460px;
+    background: var(--white);
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 12px 40px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03), 0 16px 48px rgba(0,0,0,0.08);
   }
 
-  /* ════ TOP BANNER ════ */
-  .banner {
-    background: linear-gradient(145deg, #1a0a0e 0%, var(--accent) 100%);
-    padding: 32px 24px 26px;
+  /* ══════ HEADER ══════ */
+  .header {
+    background: var(--deep);
+    padding: 30px 20px 24px;
     text-align: center;
     position: relative;
   }
 
-  .banner::after {
+  .header::after {
     content: '';
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--primary), var(--primary-soft), var(--primary), transparent);
+    background: linear-gradient(90deg, transparent 5%, var(--gold) 50%, transparent 95%);
   }
 
-  .banner .mantra {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 11px;
-    color: var(--primary-soft);
-    letter-spacing: 3px;
+  .mantra {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 
-  .banner h1 {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 26px;
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
     color: #fff;
     font-weight: 700;
-    margin: 8px 0 10px;
-    letter-spacing: 0.5px;
+    margin: 8px 0;
   }
 
-  .divider-line {
+  .h-line {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
   }
 
-  .divider-line span { width: 40px; height: 0.5px; background: var(--primary-soft); opacity: 0.5; }
-  .divider-line i { font-size: 6px; color: var(--primary-soft); opacity: 0.6; }
+  .h-line span { width: 32px; height: 0.5px; background: var(--gold); opacity: 0.4; }
+  .h-line .dia { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
 
-  /* ════ PROFILE ════ */
+  /* ══════ PROFILE ══════ */
   .profile {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 28px 24px 0;
+    padding: 26px 20px 0;
   }
 
-  .avatar-wrap {
-    width: 120px;
-    height: 120px;
+  .photo-ring {
+    width: 130px; height: 130px;
     border-radius: 50%;
     padding: 3px;
-    background: linear-gradient(135deg, var(--primary), var(--accent), var(--primary-soft));
-    margin-bottom: 16px;
+    background: conic-gradient(from 45deg, var(--gold), var(--gold-light), var(--gold), var(--deep), var(--gold), var(--gold-light), var(--gold));
+    margin-bottom: 14px;
+    box-shadow: 0 4px 20px rgba(200,163,90,0.2);
   }
 
-  .avatar {
-    width: 100%;
-    height: 100%;
+  .photo {
+    width: 100%; height: 100%;
     border-radius: 50%;
     border: 3px solid #fff;
     overflow: hidden;
-    background: var(--primary-ghost);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: var(--warm);
   }
 
-  /*
-    📸 TO ADD YOUR PHOTO:
-    1. Save photo (e.g. arvind.jpg) in same folder as this HTML
-    2. Remove the <svg> below
-    3. Add: <img src="arvind.jpg" alt="Arvind Kumar" style="width:100%;height:100%;object-fit:cover">
-  */
-
-  .avatar svg { width: 36px; height: 36px; stroke: var(--text-4); fill: none; stroke-width: 1.5; }
+  .photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
   .profile h2 {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 22px;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
     font-weight: 700;
     color: var(--text);
   }
 
-  .profile .tagline {
+  .profile .sub {
     font-size: 13px;
     color: var(--text-3);
-    margin-top: 3px;
-    font-weight: 400;
+    margin-top: 2px;
   }
 
-  /* Social */
   .socials {
     display: flex;
     gap: 8px;
-    margin-top: 14px;
+    margin-top: 12px;
   }
 
-  .soc-btn {
+  .s-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 7px 16px;
+    padding: 7px 14px;
     border-radius: 99px;
     font-size: 12px;
     font-weight: 600;
     text-decoration: none;
-    transition: opacity 0.2s;
+    color: #fff;
+    transition: transform 0.15s;
   }
 
-  .soc-btn:active { opacity: 0.85; }
-  .soc-btn i { font-size: 13px; }
+  .s-btn:active { transform: scale(0.96); }
+  .s-btn i { font-size: 13px; }
+  .s-btn.li { background: #0A66C2; }
+  .s-btn.ig { background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF); }
 
-  .soc-btn.li { background: #0A66C2; color: #fff; }
-  .soc-btn.ig { background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF); color: #fff; }
-
-  /* Tags */
-  .tags {
+  .chips {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 6px;
-    margin-top: 18px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--line);
+    margin: 16px 0 22px;
   }
 
-  .tag {
+  .chip {
     font-size: 11px;
     font-weight: 600;
-    color: var(--accent);
-    background: #fdf2f4;
-    border: 1px solid #f8e0e4;
+    color: var(--gold);
+    background: var(--gold-ghost);
+    border: 1px solid var(--gold-pale);
     padding: 4px 12px;
     border-radius: 99px;
   }
 
-  /* ════ SECTIONS ════ */
-  .content { padding: 0 24px 28px; }
+  .sep { height: 1px; background: var(--line); margin: 0 20px; }
 
-  .section { padding-top: 22px; }
+  /* ══════ CONTENT ══════ */
+  .body { padding: 0 20px 24px; }
+  .section { padding-top: 20px; }
 
-  .sec-title {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 15px;
+  .stitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
     font-weight: 700;
     color: var(--text);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    margin-bottom: 10px;
+    padding-left: 12px;
+    border-left: 3px solid var(--gold);
   }
 
-  .sec-title::before {
-    content: '';
-    width: 3px;
-    height: 16px;
-    background: linear-gradient(180deg, var(--primary), var(--accent));
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
-
-  /* ── Table-style rows ── */
-  .rows {
+  /* Rows */
+  .tbl {
     border: 1px solid var(--line);
     border-radius: 12px;
     overflow: hidden;
   }
 
-  .row {
+  .tr {
     display: flex;
-    border-bottom: 1px solid var(--line-soft);
     font-size: 13px;
+    border-bottom: 1px solid var(--line);
   }
 
-  .row:last-child { border-bottom: none; }
+  .tr:last-child { border-bottom: none; }
 
-  .row .rl {
-    width: 120px;
+  .tr .tk {
+    width: 115px;
     flex-shrink: 0;
-    padding: 10px 14px;
+    padding: 9px 12px;
     font-weight: 600;
     color: var(--text-3);
-    background: var(--primary-ghost);
-    font-size: 11.5px;
-    letter-spacing: 0.2px;
+    background: var(--gold-ghost);
+    font-size: 11px;
   }
 
-  .row .rv {
+  .tr .tv {
     flex: 1;
-    padding: 10px 14px;
+    padding: 9px 12px;
     font-weight: 500;
     color: var(--text-2);
   }
 
-  /* ── Education ── */
-  .edu-list { display: flex; flex-direction: column; gap: 6px; }
+  /* Education */
+  .edu-col { display: flex; flex-direction: column; gap: 6px; }
 
   .edu {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 14px;
-    background: var(--primary-ghost);
+    padding: 12px;
     border-radius: 12px;
-    border: 1px solid var(--line);
+    background: var(--gold-ghost);
+    border: 1px solid var(--gold-pale);
   }
 
-  .edu .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--primary);
-    flex-shrink: 0;
-    box-shadow: 0 0 0 3px var(--primary-pale);
+  .edu .badge {
+    background: var(--deep);
+    color: var(--gold-light);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 8px;
+    min-width: 44px;
+    text-align: center;
   }
 
-  .edu .ed-title { font-size: 13.5px; font-weight: 600; color: var(--text); }
-  .edu .ed-sub { font-size: 12px; color: var(--text-3); margin-top: 1px; }
+  .edu .e1 { font-size: 13px; font-weight: 700; color: var(--text); }
+  .edu .e2 { font-size: 11.5px; color: var(--text-3); margin-top: 1px; }
 
-  /* ── Profession ── */
+  /* Profession */
   .pro {
-    background: var(--text);
+    background: linear-gradient(140deg, #1a1a1a, #2c2c2c);
     border-radius: 14px;
     padding: 20px;
     color: #fff;
+    position: relative;
+    overflow: hidden;
   }
 
-  .pro .p-title {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 18px;
+  .pro::after {
+    content: '';
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,163,90,0.1);
+  }
+
+  .pro .pt {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
     font-weight: 700;
   }
 
-  .pro .p-co {
-    color: var(--primary-soft);
+  .pro .pc {
+    color: var(--gold);
     font-size: 13.5px;
     font-weight: 600;
-    margin-top: 3px;
+    margin-top: 2px;
   }
 
-  .pro .p-chips {
-    display: flex;
-    gap: 6px;
-    margin-top: 10px;
-    flex-wrap: wrap;
-  }
+  .pro .pm { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
 
-  .pro .p-chip {
-    font-size: 11px;
+  .pro .pp {
+    font-size: 10.5px;
     font-weight: 600;
-    padding: 4px 11px;
+    padding: 4px 10px;
     border-radius: 99px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(200,163,90,0.2);
+    color: var(--gold-light);
   }
 
-  /* ── Family ── */
-  .fam-grid {
+  /* Family */
+  .fgrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6px;
   }
 
-  .fam {
-    padding: 12px 14px;
-    background: #fdf8f8;
+  .fc {
+    padding: 11px 13px;
     border-radius: 12px;
-    border: 1px solid #f5e8e8;
+    background: var(--warm);
+    border: 1px solid var(--line);
   }
 
-  .fam .fr {
-    font-size: 9.5px;
+  .fc .fr {
+    font-size: 9px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.6px;
-    color: var(--primary);
+    color: var(--gold);
   }
 
-  .fam .fn { font-size: 13px; font-weight: 600; color: var(--text); margin-top: 3px; }
-  .fam .fo { font-size: 11.5px; color: var(--text-3); }
-  .fam.wide { grid-column: 1 / -1; }
+  .fc .fn { font-size: 13px; font-weight: 600; color: var(--text); margin-top: 2px; }
+  .fc .fo { font-size: 11px; color: var(--text-3); }
+  .fc.w { grid-column: 1 / -1; }
 
-  /* ── Contact ── */
-  .contact-wrap {
-    background: var(--primary-ghost);
+  /* Contact */
+  .cbox {
+    background: var(--warm);
     border-radius: 14px;
     padding: 16px;
     border: 1px solid var(--line);
   }
 
-  .addr {
-    font-size: 13px;
+  .al {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-4);
+    margin-bottom: 3px;
+  }
+
+  .at {
+    font-size: 12.5px;
     color: var(--text-2);
-    line-height: 1.65;
+    line-height: 1.6;
     padding-bottom: 12px;
     margin-bottom: 12px;
     border-bottom: 1px dashed var(--line);
   }
 
-  .addr-l {
-    font-size: 9.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    color: var(--text-4);
-    margin-bottom: 4px;
-  }
+  .crow { display: flex; flex-direction: column; gap: 10px; }
 
-  .c-items { display: flex; flex-direction: column; gap: 10px; }
+  .cit { display: flex; align-items: center; gap: 10px; }
 
-  .ci {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .ci .cic {
-    width: 34px; height: 34px;
+  .cit .ico {
+    width: 32px; height: 32px;
     border-radius: 50%;
-    background: var(--text);
+    background: var(--deep);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
 
-  .ci .cic svg {
-    width: 14px; height: 14px;
-    stroke: var(--primary-soft); fill: none;
+  .cit .ico svg {
+    width: 13px; height: 13px;
+    stroke: var(--gold); fill: none;
     stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
   }
 
-  .ci .cl { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-4); }
-  .ci .cv { font-size: 13.5px; font-weight: 600; color: var(--text); word-break: break-all; }
+  .cit .ck { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text-4); }
+  .cit .cx { font-size: 13px; font-weight: 600; color: var(--text); word-break: break-all; }
 
-  /* ════ FOOTER ════ */
-  .footer {
+  .foot {
     text-align: center;
-    padding: 20px 0 4px;
+    padding: 18px 0 4px;
     border-top: 1px solid var(--line);
     margin-top: 4px;
   }
 
-  .footer .shubh {
-    font-family: 'Libre Baskerville', serif;
+  .foot .sv {
+    font-family: 'Playfair Display', serif;
     font-size: 13px;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--gold);
     letter-spacing: 2px;
   }
 
-  .bot-bar {
+  .gbar {
     height: 3px;
-    margin-top: 20px;
-    background: linear-gradient(90deg, transparent, var(--primary), var(--accent), var(--primary), transparent);
+    margin-top: 16px;
+    background: linear-gradient(90deg, transparent 5%, var(--gold) 30%, var(--gold-light) 50%, var(--gold) 70%, transparent 95%);
   }
 
-  /* ════ RESPONSIVE ════ */
-  @media (max-width: 380px) {
-    .content { padding: 0 16px 24px; }
-    .banner { padding: 26px 16px 22px; }
-    .profile { padding: 24px 16px 0; }
-    .fam-grid { grid-template-columns: 1fr; }
-    .fam.wide { grid-column: auto; }
-    .row .rl { width: 100px; font-size: 10.5px; }
-    .socials { flex-direction: column; align-items: center; }
-    .avatar-wrap { width: 100px; height: 100px; }
+  @media (max-width: 360px) {
+    .body, .profile { padding-left: 14px; padding-right: 14px; }
+    .header { padding: 24px 14px 20px; }
+    .fgrid { grid-template-columns: 1fr; }
+    .fc.w { grid-column: auto; }
+    .tr .tk { width: 95px; font-size: 10px; }
+    .photo-ring { width: 110px; height: 110px; }
   }
 
   @media print {
     body { padding: 0; background: #fff; }
-    .card { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .page { box-shadow: none; border-radius: 0; max-width: 100%; }
   }
 </style>
 </head>
 <body>
 
-<div class="card">
+<div class="page">
 
-  <!-- Banner -->
-  <div class="banner">
-    <div class="mantra">|| SHRI GANESHAY NAMAH ||</div>
+  <div class="header">
+    <div class="mantra">|| Shri Ganeshay Namah ||</div>
     <h1>Marriage Biodata</h1>
-    <div class="divider-line"><span></span><i class="fa-solid fa-diamond"></i><span></span></div>
+    <div class="h-line"><span></span><div class="dia"></div><span></span></div>
   </div>
 
-  <!-- Profile -->
   <div class="profile">
-    <div class="avatar-wrap">
-      <div class="avatar">
-        <img src="Arvind.jpg" alt="Arvind" style="width:100%;height:100%;object-fit:cover">
-        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <div class="photo-ring">
+      <div class="photo">
+        <img src="Arvind.jpg" alt="Arvind Kumar">
       </div>
     </div>
     <h2>Arvind Kumar</h2>
-    <div class="tagline">Software Engineer · B.Tech ECE</div>
+    <div class="sub">Software Engineer · B.Tech ECE</div>
 
     <div class="socials">
-      <a href="https://www.linkedin.com/in/arvind-kumar-239a741a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="soc-btn li">
+      <a href="https://www.linkedin.com/in/arvind-kumar-239a741a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="s-btn li">
         <i class="fa-brands fa-linkedin-in"></i> LinkedIn
       </a>
-      <a href="https://www.instagram.com/arvind_kr17?igsh=MnJ6c2V0ejh2c29k" target="_blank" class="soc-btn ig">
+      <a href="https://www.instagram.com/arvind_kr17?igsh=MnJ6c2V0ejh2c29k" target="_blank" class="s-btn ig">
         <i class="fa-brands fa-instagram"></i> @arvind_kr17
       </a>
     </div>
 
-    <div class="tags">
-      <span class="tag">Unmarried</span>
-      <span class="tag">5' 6"</span>
-      <span class="tag">Fair</span>
-      <span class="tag">Kushwaha</span>
-      <span class="tag">Hindi · English</span>
+    <div class="chips">
+      <span class="chip">Unmarried</span>
+      <span class="chip">5' 6"</span>
+      <span class="chip">Fair</span>
+      <span class="chip">Kushwaha</span>
+      <span class="chip">Hindi · English</span>
     </div>
   </div>
 
-  <div class="content">
+  <div class="sep"></div>
 
-    <!-- Personal -->
+  <div class="body">
+
     <div class="section">
-      <div class="sec-title">Personal Information</div>
-      <div class="rows">
-        <div class="row"><div class="rl">Full Name</div><div class="rv">Arvind Kumar</div></div>
-        <div class="row"><div class="rl">Date of Birth</div><div class="rv">17th December 1999</div></div>
-        <div class="row"><div class="rl">Height</div><div class="rv">5' 6"</div></div>
-        <div class="row"><div class="rl">Complexion</div><div class="rv">Fair</div></div>
-        <div class="row"><div class="rl">Caste</div><div class="rv">Kushwaha</div></div>
-        <div class="row"><div class="rl">Status</div><div class="rv">Unmarried</div></div>
-        <div class="row"><div class="rl">Languages</div><div class="rv">Hindi, English</div></div>
+      <div class="stitle">Personal Information</div>
+      <div class="tbl">
+        <div class="tr"><div class="tk">Full Name</div><div class="tv">Arvind Kumar</div></div>
+        <div class="tr"><div class="tk">Date of Birth</div><div class="tv">17th December 1999</div></div>
+        <div class="tr"><div class="tk">Height</div><div class="tv">5' 6"</div></div>
+        <div class="tr"><div class="tk">Complexion</div><div class="tv">Fair</div></div>
+        <div class="tr"><div class="tk">Caste</div><div class="tv">Kushwaha</div></div>
+        <div class="tr"><div class="tk">Status</div><div class="tv">Unmarried</div></div>
+        <div class="tr"><div class="tk">Languages</div><div class="tv">Hindi, English</div></div>
       </div>
     </div>
 
-    <!-- Education -->
     <div class="section">
-      <div class="sec-title">Education</div>
-      <div class="edu-list">
+      <div class="stitle">Education</div>
+      <div class="edu-col">
         <div class="edu">
-          <div class="dot"></div>
-          <div><div class="ed-title">B.Tech – ECE</div><div class="ed-sub">IIIT Manipur · 2018–2022</div></div>
+          <div class="badge">2022</div>
+          <div><div class="e1">B.Tech – ECE</div><div class="e2">IIIT Manipur · 2018–2022</div></div>
         </div>
         <div class="edu">
-          <div class="dot"></div>
-          <div><div class="ed-title">Intermediate</div><div class="ed-sub">BSEB, 1st Division · 2017</div></div>
+          <div class="badge">2017</div>
+          <div><div class="e1">Intermediate</div><div class="e2">BSEB, 1st Division</div></div>
         </div>
         <div class="edu">
-          <div class="dot"></div>
-          <div><div class="ed-title">Matriculation</div><div class="ed-sub">BSEB, 1st Division · 2015</div></div>
+          <div class="badge">2015</div>
+          <div><div class="e1">Matriculation</div><div class="e2">BSEB, 1st Division</div></div>
         </div>
       </div>
     </div>
 
-    <!-- Profession -->
     <div class="section">
-      <div class="sec-title">Profession</div>
+      <div class="stitle">Profession</div>
       <div class="pro">
-        <div class="p-title">Software Engineer</div>
-        <div class="p-co">JusTransform</div>
-        <div class="p-chips">
-          <span class="p-chip">Remote / WFH</span>
-          <span class="p-chip">justransform.com</span>
+        <div class="pt">Software Engineer</div>
+        <div class="pc">JusTransform</div>
+        <div class="pm">
+          <span class="pp">💻 Remote / WFH</span>
+          <span class="pp">🌐 justransform.com</span>
         </div>
       </div>
     </div>
 
-    <!-- Family -->
     <div class="section">
-      <div class="sec-title">Family Details</div>
-      <div class="fam-grid">
-        <div class="fam">
-          <div class="fr">Grandfather</div>
-          <div class="fn">Bhannu Prasad</div>
-        </div>
-        <div class="fam">
-          <div class="fr">Family Status</div>
-          <div class="fn">Middle Class</div>
-        </div>
-        <div class="fam">
-          <div class="fr">Father</div>
-          <div class="fn">Rameshwar Prasad</div>
-          <div class="fo">Govt. Teacher</div>
-        </div>
-        <div class="fam">
-          <div class="fr">Mother</div>
-          <div class="fn">Indu Devi</div>
-        </div>
-        <div class="fam">
-          <div class="fr">Sibling</div>
-          <div class="fn">Puja Kumari</div>
-          <div class="fo">Govt. Teacher</div>
-        </div>
-        <div class="fam">
-          <div class="fr">Sibling</div>
-          <div class="fn">Mira Kumari</div>
-        </div>
-        <div class="fam wide">
-          <div class="fr">Sibling</div>
-          <div class="fn">Rambabu Kumar</div>
-        </div>
+      <div class="stitle">Family Details</div>
+      <div class="fgrid">
+        <div class="fc"><div class="fr">Grandfather</div><div class="fn">Bhannu Prasad</div></div>
+        <div class="fc"><div class="fr">Family Status</div><div class="fn">Middle Class</div></div>
+        <div class="fc"><div class="fr">Father</div><div class="fn">Rameshwar Prasad</div><div class="fo">Govt. Teacher</div></div>
+        <div class="fc"><div class="fr">Mother</div><div class="fn">Indu Devi</div></div>
+        <div class="fc"><div class="fr">Sibling</div><div class="fn">Puja Kumari</div><div class="fo">Govt. Teacher</div></div>
+        <div class="fc"><div class="fr">Sibling</div><div class="fn">Mira Kumari</div></div>
+        <div class="fc w"><div class="fr">Sibling</div><div class="fn">Rambabu Kumar</div></div>
       </div>
     </div>
 
-    <!-- Contact -->
     <div class="section">
-      <div class="sec-title">Contact & Address</div>
-      <div class="contact-wrap">
-        <div class="addr-l">Address</div>
-        <div class="addr">
+      <div class="stitle">Contact & Address</div>
+      <div class="cbox">
+        <div class="al">Address</div>
+        <div class="at">
           Vill – Noneya West Tola, Post – South Noneya, P.S – Paharpur<br>
           Dist – East Champaran, Bihar - 845422
         </div>
-        <div class="c-items">
-          <div class="ci">
-            <div class="cic"><svg><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-            <div><div class="cl">Mobile</div><div class="cv">+91 8789694039</div></div>
+        <div class="crow">
+          <div class="cit">
+            <div class="ico"><svg><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="ck">Mobile</div><div class="cx">+91 8789694039</div></div>
           </div>
-          <div class="ci">
-            <div class="cic"><svg><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div><div class="cl">Email</div><div class="cv">arvindkr40882@gmail.com</div></div>
+          <div class="cit">
+            <div class="ico"><svg><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="ck">Email</div><div class="cx">arvindkr40882@gmail.com</div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-      <div class="shubh">|| Shubh Vivah ||</div>
+    <div class="foot">
+      <div class="sv">|| Shubh Vivah ||</div>
     </div>
-
   </div>
 
-  <div class="bot-bar"></div>
+  <div class="gbar"></div>
 </div>
 
 </body>
