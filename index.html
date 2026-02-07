@@ -39,6 +39,62 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* ══════ KEYFRAMES ══════ */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  @keyframes gentlePulse {
+    0%, 100% { box-shadow: 0 6px 24px rgba(26,92,90,0.2), 0 2px 8px rgba(196,122,74,0.15); }
+    50% { box-shadow: 0 8px 32px rgba(26,92,90,0.3), 0 4px 14px rgba(196,122,74,0.25); }
+  }
+
+  @keyframes borderRotate {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(15deg); }
+  }
+
+  @keyframes stripShimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  @keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  @keyframes ornExpand {
+    from { width: 0; opacity: 0; }
+    to { width: 36px; opacity: 1; }
+  }
+
+  @keyframes dotPop {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
   .page {
     width: 100%;
     max-width: 470px;
@@ -46,6 +102,7 @@
     border-radius: 28px;
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(0,0,0,0.04), 0 20px 60px rgba(14,61,60,0.1);
+    animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   /* ══════ HEADER ══════ */
@@ -64,6 +121,7 @@
     border-radius: 50%;
     border: 1px solid rgba(196,122,74,0.08);
     top: -140px; right: -80px;
+    animation: scaleIn 1.5s ease-out 0.5s both;
   }
 
   .header::after {
@@ -72,6 +130,8 @@
     bottom: 0; left: 0; right: 0;
     height: 3px;
     background: linear-gradient(90deg, transparent, var(--copper), var(--copper-light), var(--copper), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
   }
 
   .mantra {
@@ -81,6 +141,7 @@
     letter-spacing: 3.5px;
     font-weight: 500;
     font-style: italic;
+    animation: fadeIn 1s ease 0.2s both;
   }
 
   .header h1 {
@@ -90,6 +151,7 @@
     font-weight: 700;
     margin: 6px 0;
     letter-spacing: 1px;
+    animation: fadeInDown 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
   }
 
   .orn {
@@ -100,9 +162,9 @@
     margin-top: 4px;
   }
 
-  .orn .ln { width: 36px; height: 1px; background: linear-gradient(90deg, transparent, var(--copper-light)); }
+  .orn .ln { width: 36px; height: 1px; background: linear-gradient(90deg, transparent, var(--copper-light)); animation: ornExpand 0.8s ease 0.7s both; }
   .orn .ln:last-child { background: linear-gradient(90deg, var(--copper-light), transparent); }
-  .orn .circle { width: 7px; height: 7px; border: 1.5px solid var(--copper-light); border-radius: 50%; }
+  .orn .circle { width: 7px; height: 7px; border: 1.5px solid var(--copper-light); border-radius: 50%; animation: dotPop 0.4s ease 0.9s both; }
 
   /* ══════ PROFILE ══════ */
   .profile {
@@ -119,7 +181,13 @@
     background: linear-gradient(135deg, var(--teal), var(--copper), var(--teal-soft), var(--copper-light));
     margin-bottom: 16px;
     box-shadow: 0 6px 24px rgba(26,92,90,0.2), 0 2px 8px rgba(196,122,74,0.15);
+    animation: scaleIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both,
+               gentlePulse 4s ease-in-out 2s infinite,
+               borderRotate 6s ease-in-out infinite alternate;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
+
+  .avatar-outer:hover { transform: scale(1.06); }
 
   .avatar-inner {
     width: 100%; height: 100%;
@@ -133,7 +201,10 @@
     width: 100%; height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.5s ease;
   }
+
+  .avatar-outer:hover .avatar-inner img { transform: scale(1.08); }
 
   .profile .name {
     font-family: 'Crimson Pro', serif;
@@ -141,6 +212,7 @@
     font-weight: 700;
     color: var(--text);
     letter-spacing: 0.3px;
+    animation: fadeInUp 0.6s ease 0.6s both;
   }
 
   .profile .role {
@@ -149,6 +221,7 @@
     color: var(--teal-soft);
     margin-top: 2px;
     letter-spacing: 0.4px;
+    animation: fadeInUp 0.6s ease 0.7s both;
   }
 
   /* Social */
@@ -156,6 +229,7 @@
     display: flex;
     gap: 8px;
     margin-top: 14px;
+    animation: fadeInUp 0.6s ease 0.8s both;
   }
 
   .soc {
@@ -169,15 +243,16 @@
     text-decoration: none;
     color: #fff;
     letter-spacing: 0.2px;
-    transition: transform 0.15s, box-shadow 0.2s;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
   }
 
+  .soc:hover { transform: translateY(-3px) scale(1.04); }
   .soc:active { transform: scale(0.96); }
   .soc i { font-size: 13px; }
   .soc.li { background: #0A66C2; }
-  .soc.li:hover { box-shadow: 0 4px 14px rgba(10,102,194,0.3); }
+  .soc.li:hover { box-shadow: 0 6px 20px rgba(10,102,194,0.4); }
   .soc.ig { background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF); }
-  .soc.ig:hover { box-shadow: 0 4px 14px rgba(221,42,123,0.3); }
+  .soc.ig:hover { box-shadow: 0 6px 20px rgba(221,42,123,0.4); }
 
   .divider {
     height: 1px;
@@ -187,7 +262,18 @@
 
   /* ══════ BODY ══════ */
   .body { padding: 0 20px 28px; }
-  .section { padding-top: 22px; }
+
+  .section {
+    padding-top: 22px;
+    opacity: 0;
+    animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .section:nth-child(1) { animation-delay: 0.9s; }
+  .section:nth-child(2) { animation-delay: 1.05s; }
+  .section:nth-child(3) { animation-delay: 1.2s; }
+  .section:nth-child(4) { animation-delay: 1.35s; }
+  .section:nth-child(5) { animation-delay: 1.5s; }
 
   .stitle {
     font-family: 'Crimson Pro', serif;
@@ -201,11 +287,26 @@
     letter-spacing: 0.3px;
   }
 
-  .stitle .dot {
-    width: 8px; height: 8px;
-    background: linear-gradient(135deg, var(--teal), var(--copper));
-    border-radius: 50%;
+  .stitle .sec-icon {
+    width: 30px; height: 30px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+    box-shadow: 0 2px 8px rgba(26,92,90,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .stitle:hover .sec-icon {
+    transform: scale(1.12) rotate(-5deg);
+    box-shadow: 0 4px 14px rgba(26,92,90,0.25);
+  }
+
+  .stitle .sec-icon i {
+    font-size: 12px;
+    color: var(--copper-light);
   }
 
   .stitle::after {
@@ -224,18 +325,41 @@
 
   .irow {
     display: flex;
+    align-items: center;
     font-size: 12.5px;
     border-bottom: 1px solid var(--line-soft);
+    transition: background 0.3s ease;
   }
 
   .irow:last-child { border-bottom: none; }
-
   .irow:nth-child(even) { background: rgba(26,92,90,0.015); }
+  .irow:hover { background: rgba(26,92,90,0.04); }
+
+  .irow .row-icon {
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 12px;
+    flex-shrink: 0;
+  }
+
+  .irow .row-icon i {
+    font-size: 11px;
+    color: var(--teal-soft);
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .irow:hover .row-icon i {
+    opacity: 1;
+    transform: scale(1.15);
+  }
 
   .irow .ik {
-    width: 110px;
+    width: 100px;
     flex-shrink: 0;
-    padding: 10px 14px;
+    padding: 10px 8px 10px 6px;
     font-weight: 600;
     color: var(--text-3);
     font-size: 10.5px;
@@ -245,7 +369,7 @@
 
   .irow .iv {
     flex: 1;
-    padding: 10px 14px;
+    padding: 10px 14px 10px 0;
     font-weight: 500;
     color: var(--text-2);
   }
@@ -261,10 +385,14 @@
     border-radius: 14px;
     background: linear-gradient(135deg, #eaf4f3, #f4f9f8);
     border: 1px solid #d8ece9;
-    transition: transform 0.15s;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+    cursor: default;
   }
 
-  .edu:active { transform: scale(0.99); }
+  .edu:hover {
+    transform: translateX(6px);
+    box-shadow: -4px 4px 16px rgba(26,92,90,0.08);
+  }
 
   .edu .yr {
     background: linear-gradient(135deg, var(--teal-deep), var(--teal));
@@ -276,6 +404,22 @@
     min-width: 48px;
     text-align: center;
     letter-spacing: 0.3px;
+    transition: transform 0.3s ease;
+  }
+
+  .edu:hover .yr { transform: scale(1.08); }
+
+  .edu .edu-icon {
+    font-size: 16px;
+    color: var(--teal-soft);
+    opacity: 0.5;
+    flex-shrink: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .edu:hover .edu-icon {
+    opacity: 0.8;
+    transform: scale(1.15);
   }
 
   .edu .et {
@@ -295,6 +439,12 @@
     color: #fff;
     position: relative;
     overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+  }
+
+  .pro:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(14,61,60,0.25);
   }
 
   .pro::before {
@@ -304,6 +454,37 @@
     width: 120px; height: 120px;
     border-radius: 50%;
     border: 1px solid rgba(196,122,74,0.12);
+    transition: transform 0.6s ease;
+  }
+
+  .pro:hover::before { transform: scale(1.3); }
+
+  .pro .pro-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .pro .pro-icon-wrap {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(221,168,122,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .pro:hover .pro-icon-wrap {
+    transform: scale(1.08);
+    background: rgba(255,255,255,0.12);
+  }
+
+  .pro .pro-icon-wrap i {
+    font-size: 18px;
+    color: var(--copper-light);
   }
 
   .pro .p1 {
@@ -331,6 +512,12 @@
     border: 1px solid rgba(221,168,122,0.2);
     color: var(--copper-pale);
     letter-spacing: 0.2px;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .pro .pill:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
   }
 
   /* Family */
@@ -345,7 +532,39 @@
     border-radius: 14px;
     background: var(--copper-ghost);
     border: 1px solid var(--copper-pale);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, background 0.3s ease;
+    cursor: default;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
   }
+
+  .fcard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(196,122,74,0.12);
+    background: #fdf2e6;
+  }
+
+  .fcard .fcard-icon {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--copper), var(--copper-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: transform 0.3s ease;
+  }
+
+  .fcard:hover .fcard-icon { transform: scale(1.1); }
+
+  .fcard .fcard-icon i {
+    font-size: 11px;
+    color: #fff;
+  }
+
+  .fcard .fcard-content { flex: 1; }
 
   .fcard .fr {
     font-size: 9px;
@@ -372,7 +591,10 @@
     border-radius: 16px;
     padding: 18px;
     border: 1px solid #d0e8e6;
+    transition: box-shadow 0.3s ease;
   }
+
+  .cbox:hover { box-shadow: 0 6px 24px rgba(26,92,90,0.08); }
 
   .clabel {
     font-size: 9px;
@@ -381,6 +603,14 @@
     letter-spacing: 0.7px;
     color: var(--text-4);
     margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .clabel i {
+    font-size: 10px;
+    color: var(--teal-soft);
   }
 
   .caddr {
@@ -398,7 +628,10 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    transition: transform 0.25s ease;
   }
+
+  .ci:hover { transform: translateX(4px); }
 
   .ci .cic {
     width: 34px; height: 34px;
@@ -408,12 +641,17 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .ci .cic svg {
-    width: 14px; height: 14px;
-    stroke: var(--copper-light); fill: none;
-    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  .ci:hover .cic {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 4px 12px rgba(26,92,90,0.2);
+  }
+
+  .ci .cic i {
+    font-size: 13px;
+    color: var(--copper-light);
   }
 
   .ci .cl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-4); }
@@ -424,6 +662,7 @@
     text-align: center;
     padding: 20px 0 6px;
     margin-top: 6px;
+    animation: fadeIn 0.8s ease 1.8s both;
   }
 
   .foot-orn {
@@ -445,12 +684,15 @@
     font-style: italic;
     color: var(--teal);
     letter-spacing: 2px;
+    animation: floatUp 3s ease-in-out infinite;
   }
 
   .bottom-strip {
     height: 4px;
     margin-top: 18px;
     background: linear-gradient(90deg, var(--teal), var(--copper), var(--teal-soft), var(--copper-light), var(--teal));
+    background-size: 200% 100%;
+    animation: stripShimmer 4s linear infinite;
   }
 
   /* ══════ RESPONSIVE ══════ */
@@ -460,14 +702,22 @@
     .header h1 { font-size: 26px; }
     .fam-grid { grid-template-columns: 1fr; }
     .fcard.full { grid-column: auto; }
-    .irow .ik { width: 95px; font-size: 9.5px; }
+    .irow .ik { width: 85px; font-size: 9.5px; }
     .avatar-outer { width: 110px; height: 110px; }
     .socials { flex-direction: column; align-items: center; }
   }
 
   @media print {
     body { padding: 0; background: #fff; }
-    .page { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .page { box-shadow: none; border-radius: 0; max-width: 100%; animation: none; }
+    .section { animation: none; opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>
 </head>
@@ -504,77 +754,149 @@
 
   <div class="body">
 
+    <!-- Personal Information -->
     <div class="section">
-      <div class="stitle"><span class="dot"></span>Personal Information</div>
+      <div class="stitle">
+        <span class="sec-icon"><i class="fa-solid fa-user"></i></span>
+        Personal Information
+      </div>
       <div class="info-tbl">
-        <div class="irow"><div class="ik">Full Name</div><div class="iv">Arvind Kumar</div></div>
-        <div class="irow"><div class="ik">Date of Birth</div><div class="iv">17th December 1999 (26 years)</div></div>
-        <div class="irow"><div class="ik">Height</div><div class="iv">5' 6" (168 cm)</div></div>
-        <div class="irow"><div class="ik">Complexion</div><div class="iv">Fair</div></div>
-        <div class="irow"><div class="ik">Caste</div><div class="iv">Kushwaha</div></div>
-        <div class="irow"><div class="ik">Status</div><div class="iv">Unmarried</div></div>
-        <div class="irow"><div class="ik">Languages</div><div class="iv">Hindi, English</div></div>
+        <div class="irow">
+          <div class="row-icon"><i class="fa-solid fa-id-card"></i></div>
+          <div class="ik">Full Name</div><div class="iv">Arvind Kumar</div>
+        </div>
+        <div class="irow">
+          <div class="row-icon"><i class="fa-solid fa-calendar"></i></div>
+          <div class="ik">Date of Birth</div><div class="iv">17th December 1999</div>
+        </div>
+        <div class="irow">
+          <div class="row-icon"><i class="fa-solid fa-ruler-vertical"></i></div>
+          <div class="ik">Height</div><div class="iv">5' 6"</div>
+        </div>
+        <div class="irow">
+          <div class="row-icon"><i class="fa-solid fa-palette"></i></div>
+          <div class="ik">Complexion</div><div class="iv">Fair</div>
+        </div>
+        <div class="irow">
+          <div class="row-icon"><i class="fa-solid fa-om"></i></div>
+          <div class="ik">Caste</div><div class="iv">Hindu - Kushwaha</div>
+        </div>
+        <div class="irow">
+          <div class="row-icon"><i class="fa-solid fa-heart"></i></div>
+          <div class="ik">Status</div><div class="iv">Unmarried</div>
+        </div>
+        <div class="irow">
+          <div class="row-icon"><i class="fa-solid fa-language"></i></div>
+          <div class="ik">Languages</div><div class="iv">Hindi, English</div>
+        </div>
       </div>
     </div>
 
+    <!-- Education -->
     <div class="section">
-      <div class="stitle"><span class="dot"></span>Education</div>
+      <div class="stitle">
+        <span class="sec-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+        Education
+      </div>
       <div class="edu-stack">
         <div class="edu">
           <div class="yr">2022</div>
+          <i class="fa-solid fa-microchip edu-icon"></i>
           <div><div class="et">B.Tech – ECE</div><div class="es">Indian Institute of Information Technology, Senapati, Manipur · 2018–2022</div></div>
         </div>
         <div class="edu">
           <div class="yr">2017</div>
+          <i class="fa-solid fa-book-open edu-icon"></i>
           <div><div class="et">Intermediate</div><div class="es">BSEB, 1st Division</div></div>
         </div>
         <div class="edu">
           <div class="yr">2015</div>
+          <i class="fa-solid fa-school edu-icon"></i>
           <div><div class="et">Matriculation</div><div class="es">BSEB, 1st Division</div></div>
         </div>
       </div>
     </div>
 
+    <!-- Profession -->
     <div class="section">
-      <div class="stitle"><span class="dot"></span>Profession</div>
+      <div class="stitle">
+        <span class="sec-icon"><i class="fa-solid fa-briefcase"></i></span>
+        Profession
+      </div>
       <div class="pro">
-        <div class="p1">Software Engineer</div>
-        <div class="p2">JusTransform</div>
+        <div class="pro-header">
+          <div class="pro-icon-wrap">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <div>
+            <div class="p1">Software Engineer</div>
+            <div class="p2">JusTransform</div>
+          </div>
+        </div>
         <div class="pills">
-          <span class="pill">💻 Remote / WFH</span>
-          <a href="https://www.justransform.com" target="_blank" class="pill" style="text-decoration:none;color:inherit">🌐 justransform.com</a>
+          <span class="pill"><i class="fa-solid fa-house-laptop" style="margin-right:4px;font-size:9px"></i> Remote / WFH</span>
+          <a href="https://www.justransform.com" target="_blank" class="pill" style="text-decoration:none;color:inherit"><i class="fa-solid fa-globe" style="margin-right:4px;font-size:9px"></i> justransform.com</a>
         </div>
       </div>
     </div>
 
+    <!-- Family Details -->
     <div class="section">
-      <div class="stitle"><span class="dot"></span>Family Details</div>
+      <div class="stitle">
+        <span class="sec-icon"><i class="fa-solid fa-people-roof"></i></span>
+        Family Details
+      </div>
       <div class="fam-grid">
-        <div class="fcard"><div class="fr">Grandfather</div><div class="fn">Bhannu Prasad</div></div>
-        <div class="fcard"><div class="fr">Family Status</div><div class="fn">Middle Class</div></div>
-        <div class="fcard"><div class="fr">Father</div><div class="fn">Rameshwar Prasad</div><div class="fo">Govt. Teacher</div></div>
-        <div class="fcard"><div class="fr">Mother</div><div class="fn">Indu Devi</div></div>
-        <div class="fcard"><div class="fr">Sibling</div><div class="fn">Puja Kumari</div><div class="fo">Govt. Teacher</div></div>
-        <div class="fcard"><div class="fr">Sibling</div><div class="fn">Mira Kumari</div></div>
-        <div class="fcard full"><div class="fr">Sibling</div><div class="fn">Rambabu Kumar</div></div>
+        <div class="fcard">
+          <div class="fcard-icon"><i class="fa-solid fa-star"></i></div>
+          <div class="fcard-content"><div class="fr">Grandfather</div><div class="fn">Bhannu Prasad</div></div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon"><i class="fa-solid fa-house"></i></div>
+          <div class="fcard-content"><div class="fr">Family Status</div><div class="fn">Middle Class</div></div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon"><i class="fa-solid fa-person"></i></div>
+          <div class="fcard-content"><div class="fr">Father</div><div class="fn">Rameshwar Prasad</div><div class="fo">Govt. Teacher</div></div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon"><i class="fa-solid fa-person-dress"></i></div>
+          <div class="fcard-content"><div class="fr">Mother</div><div class="fn">Indu Devi</div></div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon"><i class="fa-solid fa-user-group"></i></div>
+          <div class="fcard-content"><div class="fr">Sibling</div><div class="fn">Puja Kumari</div><div class="fo">Govt. Teacher</div></div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon"><i class="fa-solid fa-user-group"></i></div>
+          <div class="fcard-content"><div class="fr">Sibling</div><div class="fn">Mira Kumari</div></div>
+        </div>
+        <div class="fcard full">
+          <div class="fcard-icon"><i class="fa-solid fa-user-group"></i></div>
+          <div class="fcard-content"><div class="fr">Sibling</div><div class="fn">Rambabu Kumar</div></div>
+        </div>
       </div>
     </div>
 
+    <!-- Contact & Address -->
     <div class="section">
-      <div class="stitle"><span class="dot"></span>Contact & Address</div>
+      <div class="stitle">
+        <span class="sec-icon"><i class="fa-solid fa-address-book"></i></span>
+        Contact & Address
+      </div>
       <div class="cbox">
-        <div class="clabel">Address</div>
+        <div class="clabel"><i class="fa-solid fa-location-dot"></i> Address</div>
         <div class="caddr">
           Vill – Noneya West Tola, Post – South Noneya, P.S – Paharpur<br>
           Dist – East Champaran, Bihar - 845422
         </div>
         <div class="citems">
           <div class="ci">
-            <div class="cic"><svg><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="cic"><i class="fa-solid fa-phone"></i></div>
             <div><div class="cl">Mobile</div><div class="cv">+91 8789694039</div></div>
           </div>
           <div class="ci">
-            <div class="cic"><svg><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="cic"><i class="fa-solid fa-envelope"></i></div>
             <div><div class="cl">Email</div><div class="cv">arvindkr40882@gmail.com</div></div>
           </div>
         </div>
@@ -592,4 +914,3 @@
 
 </body>
 </html>
-
